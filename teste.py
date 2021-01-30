@@ -1,14 +1,15 @@
 from livro import Livro
 import main
+"""
+     * create_table(self, table_name = self.table_name) 
+     ! read_table(self)
+     * update_book(self, specified_column, new_value, id_livro)
+     * delete_book(self, id_livro)
+     * insert_book(self, livro)
+"""
 
 
-banco = main.DbLivros()
-#banco.create_table()
-
-banco.read_table()
-
-
-"""while True:
+def register_book():
     print('Cadastre um livro: ')
     id = int(input('id: '))
     nome = input('nome: ')
@@ -16,21 +17,13 @@ banco.read_table()
     editora = input('editora: ')
     proprietario = input('proprietario: ')
 
-    livro = Livro(id, nome, autor, editora, proprietario)
+    return Livro(id, nome, autor, editora, proprietario)
 
-    banco.insert_book(livro)
 
-    break"""
-
-'''print('O que você deseja fazer?\n1) Adicionar um novo livro\n2) Atualizar um livro\n3) Deletar um livro')
-
-    desejo = int(input('Desejo: '))
-
-    if desejo == 1:
-        
-    elif desejo == 2:
-        pass
-    elif desejo == 3:
-        pass
-    else:
-        print('Opção inválida!')'''
+banco = main.DbLivros()
+#banco.create_table("livros")
+livro = register_book()
+banco.insert_book(livro)
+# banco.delete_book(2)
+#banco.update_book("editora", "Secker & Warburg", 2)
+banco.read_table()
